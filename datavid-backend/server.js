@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -104,11 +103,9 @@ app.put("/members/:id", async (req, res) => {
     _id: { $ne: req.params.id },
   });
   if (existingMember) {
-    return res
-      .status(400)
-      .json({
-        message: "A member with the same name and location already exists.",
-      });
+    return res.status(400).json({
+      message: "A member with the same name and location already exists.",
+    });
   }
 
   try {
